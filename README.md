@@ -6,10 +6,8 @@ A template for asp.net core 2.2 API and Angular 7
 We have a process to automatically create the Typescript models from our C# models. The process requires that we have the dotnet tools installed globally. To install the tools run the following command from your command line:
 
 ```
- dotnet tool install -g TypeGen.DotNetCli.TKS --version 2.3.1
+ dotnet tool install -g TypeGen.DotNetCli --version 2.3.1
 ```
-***Note:*** *if you alread have the non-TKS tool install please uninstall that first with* `dotnet uninstall -g TypeGen.DotNetCli`
-
 When the project builds it will automatically take all models that contain the proper class attributes and generate the associated typescript models.
 
 An example of attributes:
