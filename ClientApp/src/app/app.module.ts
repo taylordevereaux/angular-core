@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AppRoutes } from './app.routing';
+import { CounterStore } from './counter/counter.store';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { AppRoutes } from './app.routing';
     FormsModule,
     AppRoutes
   ],
-  providers: [],
+  providers: [CounterStore],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
