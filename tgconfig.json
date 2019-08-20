@@ -1,0 +1,7 @@
+{
+  "typeScriptFileExtension": "ts",
+  "tabLength": 2,
+  "enumStringInitializers": true,
+  "singleQuotes": true,
+  "outputPath": "./ClientApp/src/app/_endpoints/models"
+}

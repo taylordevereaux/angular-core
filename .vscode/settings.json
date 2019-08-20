@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "tslint.configFile": "../ClientApp/tslint.json",
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
