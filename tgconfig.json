@@ -3,5 +3,5 @@
   "tabLength": 2,
   "enumStringInitializers": true,
   "singleQuotes": true,
-  "outputPath": "./ClientApp/src/app/_endpoints/models"
+  "outputPath": "./ClientApp/src/app/_models/"
 }
