@@ -46,3 +46,142 @@ CreateMap<User, UserModel>().ReverseMap();
 ```
 
 `.ReverseMap();` tells the mapper to do the reverse mapping for `UserModel` and `User`.
+
+# Localization (Angular)
+
+All content of the website should be localized.
+
+## Structure
+
+The localization files are located under `/src/assets/i18n/[lang].json` where `[lang]` is the language code (ex: `en-CA`, `fr-CA`).
+The json file must adhere to the following structure:
+```json 
+{
+    "Global": {
+        "<GlobalKey>": "<Localized text>"
+    },
+    "<Feature>": {
+        "<FeatureKey>": "<Localized text>",
+        "<AnotherFeatureKey>": "<More localized text>"
+    },
+    "<Feature2>": {
+        "<FeatureKey>": "<localized text>",
+
+        "<SubFeature>": {
+            "<SubFeatureKey>": "<Localized text>",
+            "<AnotherSubFeatureKey>": "<More localized text>"
+        }
+    }
+}
+```
+### Global
+The `Global` grouping is used to store all localized text that will be reusable throughout the application. Not tied to a single feature.
+
+### Features
+Each `feature` should have its own grouping following the `Global` group. The features can have their own localized text or contain `SubFeature` groupings with their own localized text and so on...
+
+### Example
+```json
+{
+    "Global": {
+        "Hello": "Hello {{firstname}}",
+        "Save": "Save",
+        "Cancel": "Cancel"
+    },
+    "Admin": {
+        // Sub Features
+        "SalesOverview": {
+            "Title": "Sales Overview"
+        },
+        "Profile": {
+            "Title": "Admin Profile"
+        }
+    },
+    "Dashboard": {
+        "Title": "Dashboard",
+        // Sub Features
+        "Widgets": {
+            "Sales": "Sales",
+            "Throughput": "Throughput"
+        }
+    }
+}
+```
+
+## Usage (Html)
+
+To use translated text you need to follow the hierarchy of the `[lang].json` file. 
+An example on the dashboard might be:
+```html
+<h1>{{ 'Dashboard.Title' | translate }}</h1>
+```
+Here it will look for the `Dashboard.Title` key in the json file. The `|` tells angular that this key is a translation key and should be retrieved from the `[lang].json` file.
+
+**Formatted Strings**
+
+You can also format translated strings by passing an object with the keys matching the format name. From an example above we have the following localization key:
+```json
+{
+    "Global": {
+        "Hello": "Hello {{username}}"
+    }
+}
+```
+To pass the `username` to the translation there is two options. 
+You define the parameters directly in the template, where `this.username` is a property defined on the `Component`.
+```html
+<p>
+  {{ 'Global.Hello' | translate:{ username: this.username} }}
+</p>
+```
+Or, you can define this object in the `Component` (useful if there are more than one items to pass).
+
+**Component**
+```ts
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
+})
+export class DashboardComponent implements OnInit {
+  public param: string;
+  ngOnInit() {
+    this.param = { username: 'john.doe' };
+  }
+}
+```
+**Template**
+```html
+<p>
+  {{ 'Global.Hello' | translate:param }}
+</p>
+```
+
+## Usage (Typescript)
+To get translated text in typescript you need to inject the `TranslateService` and use it to request the translated text.
+
+Ex:
+```ts
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
+})
+export class DashboardComponent implements OnInit {
+  public title: string;
+  
+  constructor (translate: TranslateService) {}
+  
+  ngOnInit() {
+
+    translate.get('Dashboard.Title').subscribe((res: string) => {
+        this.title = res;
+    });
+  }
+}
+```
