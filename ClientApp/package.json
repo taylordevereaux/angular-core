@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:release": "ng build -c=production --prod --build-optimizer",
     "hmr": "ng serve --hmr -c=hmr --hmrWarning=false",
     "build:ssr": "ng run angular_core:server:dev",
     "test": "ng test",
