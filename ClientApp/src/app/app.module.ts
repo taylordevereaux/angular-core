@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AppRoutes } from './app.routing';
 import { CounterStore } from './counter/counter.store';
+import { FetchDataStore } from './fetch-data/fetch-data.store';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { CounterStore } from './counter/counter.store';
     FormsModule,
     AppRoutes
   ],
-  providers: [CounterStore],
+  providers: [CounterStore, FetchDataStore],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
