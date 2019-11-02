@@ -7,5 +7,4 @@ export interface WeatherForecastModel {
   dateFormatted: string;
   temperatureC: number;
   summary: string;
-  temperatureF: number;
 }

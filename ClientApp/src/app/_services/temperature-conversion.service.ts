@@ -6,7 +6,11 @@ import { Injectable } from '@angular/core';
 export class TemperatureConversionService {
   constructor() {}
 
-  convertToCelcius(value: number) {
-    return value * 0.234;
+  convertToCelsius(value: number) {
+    return (value - 32) * (5 / 9);
+  }
+
+  convertToFahrenheit(value: number) {
+    return value * (9 / 5) + 32;
   }
 }

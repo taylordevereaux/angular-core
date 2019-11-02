@@ -18,7 +18,7 @@
       <tr *ngFor="let forecast of state.forecasts">
         <td>{{ forecast.dateFormatted }}</td>
         <td>{{ forecast.temperatureC }}</td>
-        <td>{{ forecast.temperatureF }}</td>
+        <td>{{ forecast.temperatureC | temperature: 'F' }}</td>
         <td>{{ forecast.summary }}</td>
       </tr>
     </tbody>

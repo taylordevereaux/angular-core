@@ -3,12 +3,15 @@
  * used throughout the application.
  * The Shared Module should be used whenever you believe an item will be needed outside of it's current module.
  */
-
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { TemperaturePipe } from './pipes/temperature.pipe';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: []
+  imports: [],
+  declarations: [TemperaturePipe],
+  exports: [
+    // Pipes
+    TemperaturePipe
+  ]
 })
 export class SharedModule {}

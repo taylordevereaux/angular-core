@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AppRoutes } from './app.routing';
 import { CounterStore } from './counter/counter.store';
 import { FetchDataStore } from './fetch-data/fetch-data.store';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FetchDataStore } from './fetch-data/fetch-data.store';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    SharedModule,
     AppRoutes
   ],
   providers: [CounterStore, FetchDataStore],
