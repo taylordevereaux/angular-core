@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace angular_core.Controllers
 {
     [Route("api/[controller]")]
-    public class SampleDataController : Controller
+    public class WeatherForecastsController : Controller
     {
         private static string[] Summaries = new[]
         {
