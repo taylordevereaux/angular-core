@@ -5,7 +5,7 @@ import { WeatherForecastModel } from '../_models/weather-forecast-model';
 @Injectable({
   providedIn: 'root'
 })
-export class SampleDataService {
+export class WeatherForecastService {
   constructor(
     private http: HttpClient,
     @Inject('BASE_URL') private baseUrl: string

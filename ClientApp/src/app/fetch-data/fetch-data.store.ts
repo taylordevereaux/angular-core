@@ -1,11 +1,11 @@
 import { Store } from 'rxjs-observable-store';
 import { Injectable } from '@angular/core';
 import { FetchDataState } from './fetch-data.state';
-import { SampleDataService } from '../_endpoints/sample-data.service';
+import { WeatherForecastService } from '../_endpoints/weather-forecast.service';
 
 @Injectable()
 export class FetchDataStore extends Store<FetchDataState> {
-  constructor(private service: SampleDataService) {
+  constructor(private service: WeatherForecastService) {
     // Set the intial state to an empty array of forecasts.
     super({
       forecasts: [],
