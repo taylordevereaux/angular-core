@@ -1,7 +1,12 @@
+
+using Microsoft.AspNetCore.Mvc;
+
 namespace angular_core.API.Users
 {
-    public class UserController
-    {
-        
-    }
+  [Route("api/[controller]")]
+  [ApiController]
+  public class UserController
+  {
+
+  }
 }
