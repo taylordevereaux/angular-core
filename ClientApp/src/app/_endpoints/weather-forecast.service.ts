@@ -13,7 +13,7 @@ export class WeatherForecastService {
 
   getWeatherForcasts() {
     return this.http.get<WeatherForecastModel[]>(
-      `${this.baseUrl}api/SampleData/WeatherForecasts`
+      `${this.baseUrl}api/WeatherForecasts/WeatherForecasts`
     );
   }
 }

@@ -1,7 +1,10 @@
 @import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/mixins';
 
 $secondary: #919191;
 $blue: #006ccd;
 
+// Required
 @import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import 'bootstrap/scss/utilities';
+@import '~bootstrap/scss/root';
