@@ -10,7 +10,7 @@
       "request": "launch",
       "preLaunchTask": "build",
       // If you have changed target frameworks, make sure to update the program path.
-      "program": "${workspaceFolder}/bin/Debug/netcoreapp2.2/angular-core.dll",
+      "program": "${workspaceFolder}/bin/Debug/net5.0/angular-core.dll",
       "args": [],
       "cwd": "${workspaceFolder}",
       "stopAtEntry": false,
@@ -44,12 +44,31 @@
         "/*": "*",
         "/./~/*": "${webRoot}/node_modules/*"
       }
+    },
+    {
+      "type": "msedge",
+      "request": "launch",
+      "name": "Edge",
+      "url": "http://localhost:5000/",
+      "webRoot": "${workspaceFolder}/ClientApp",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack:/*": "${webRoot}/*",
+        "/./*": "${webRoot}/*",
+        "/src/*": "${webRoot}/*",
+        "/*": "*",
+        "/./~/*": "${webRoot}/node_modules/*"
+      }
     }
   ],
   "compounds": [
     {
       "name": "Debug",
       "configurations": [".NET Core Launch (web)", "Chrome"]
+    },
+    {
+      "name": "Debug (Edge)",
+      "configurations": [".NET Core Launch (web)", "Edge"]
     }
   ]
 }
